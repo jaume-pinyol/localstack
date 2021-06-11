@@ -1,4 +1,4 @@
-FROM localstack/java-maven-node-python
+FROM localstack-base:arm-2
 
 MAINTAINER Waldemar Hummer (waldemar.hummer@gmail.com)
 LABEL authors="LocalStack Contributors"

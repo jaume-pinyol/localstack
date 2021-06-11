@@ -17,7 +17,7 @@ RUN apk add --no-cache postgresql=$PG_VER postgresql-client=$PG_VER postgresql-d
 
 # install Docker (CLI only)
 RUN docker_version=20.10.7; \
-  curl -fsSLO https://download.docker.com/linux/static/stable/x86_64/docker-$docker_version.tgz \
+  curl -fsSLO https://download.docker.com/linux/static/stable/aarch64/docker-$docker_version.tgz \
   && tar xzvf docker-$docker_version.tgz \
   && mv docker/docker /usr/local/bin \
   && rm -r docker docker-$docker_version.tgz
@@ -95,7 +95,7 @@ RUN mkdir -p /opt/code/localstack/localstack/infra && \
       curl -L -o /tmp/localstack.ddb.zip ${DYNAMODB_ZIP_URL} && \
       (cd localstack/infra/dynamodb && unzip -q /tmp/localstack.ddb.zip && rm /tmp/localstack.ddb.zip) && \
     curl -L -o /tmp/localstack.es.tar.gz \
-        https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.7.0-linux-x86_64.tar.gz && \
+        https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.8.0-linux-aarch64.tar.gz && \
     curl -L -o /tmp/elasticmq-server.jar \
         https://s3-eu-west-1.amazonaws.com/softwaremill-public/elasticmq-server-1.1.0.jar && \
     (cd localstack/infra/ && tar -xf /tmp/localstack.es.tar.gz && \
