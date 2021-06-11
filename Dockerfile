@@ -39,7 +39,7 @@ ADD localstack/package.json localstack/package.json
 ADD localstack/services/__init__.py localstack/services/install.py localstack/services/
 
 # initialize installation (downloads remaining dependencies)
-#RUN make init-testlibs
+RUN make init-testlibs
 ADD localstack/infra/stepfunctions localstack/infra/stepfunctions
 RUN make init
 
@@ -95,7 +95,7 @@ RUN ES_BASE_DIR=localstack/infra/elasticsearch; \
 
 # run tests (to verify the build before pushing the image)
 ADD tests/ tests/
-RUN LAMBDA_EXECUTOR=local make test
+#RUN LAMBDA_EXECUTOR=local make test
 
 # clean up temporary files created during test execution
 RUN apk del --purge git cmake gcc musl-dev libc-dev; \
