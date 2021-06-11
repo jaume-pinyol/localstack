@@ -1,4 +1,4 @@
-IMAGE_NAME ?= localstack/localstack
+IMAGE_NAME ?= localstack/localstack-arm
 IMAGE_NAME_BASE ?= localstack/java-maven-node-python
 IMAGE_NAME_LIGHT ?= localstack/localstack-light
 IMAGE_NAME_FULL ?= localstack/localstack-full
