@@ -39,7 +39,7 @@ ADD localstack/package.json localstack/package.json
 ADD localstack/services/__init__.py localstack/services/install.py localstack/services/
 
 # initialize installation (downloads remaining dependencies)
-RUN make init-testlibs
+#RUN make init-testlibs
 ADD localstack/infra/stepfunctions localstack/infra/stepfunctions
 RUN make init
 

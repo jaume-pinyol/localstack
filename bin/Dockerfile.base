@@ -4,10 +4,14 @@ MAINTAINER Waldemar Hummer (waldemar.hummer@gmail.com)
 LABEL authors="Waldemar Hummer (waldemar.hummer@gmail.com)"
 
 # install some common libs
+
+RUN ([[ `uname -m` == 'aarch64' ]] && apk add libc6-compat) || true
+
 RUN apk add --no-cache autoconf automake boost-dev build-base ca-certificates cmake curl cyrus-sasl-dev \
         g++ gcc git groff iputils libffi-dev libtool linux-headers make nss openssl openssl-dev \
         py3-pip python3 python3-dev tar xz zip && \
     update-ca-certificates
+
 # ARG PG_VER=12.7-r0
 # ARG APK_REPO=http://dl-cdn.alpinelinux.org/alpine/v3.12/main
 # reverting back to v11.12 to save ~150MB of disk space in the final image
